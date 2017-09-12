@@ -1,0 +1,8 @@
+This project is to study the various data flow. Using [React](https://facebook.github.io/react/) learn data flow.
+
+includes:
+
+* [ ] redux-thunk + async
+* [ ] redux-saga
+* [ ] redux-observable
+* [ ] mobx
