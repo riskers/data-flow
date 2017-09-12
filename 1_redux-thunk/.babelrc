@@ -6,6 +6,11 @@
   ],
   "plugins": [
     "transform-decorators-legacy",
-    "transform-runtime"
+    "transform-runtime",
+    ["react-css-modules", 
+      {
+        "generateScopedName":"[local]___[hash:base64:5]"
+      }
+    ]
   ]
 }
