@@ -2,7 +2,7 @@
 
 This is a simplest redux method for asynchronous operation.
 
-[redux-thunk](https://github.com/gaearon/redux-thunk) allows you async dispatch and await asynchronous operation
+It can use like-synchronous way to write asynchronous coding.Because of [redux-thunk](https://github.com/gaearon/redux-thunk), you can async dispatch and await asynchronous operation:
 
 ```js
 // action creators
@@ -23,7 +23,7 @@ const getUsers = username => {
     }catch(error) {
       dispatch({
         type: 'FAILURE',
-        error: "No This User"
+        error: error
       })
     }
   }
