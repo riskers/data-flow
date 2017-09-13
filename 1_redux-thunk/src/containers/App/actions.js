@@ -53,7 +53,7 @@ export const getFollowers = (username, page=1) => {
   }
 }
 
-export const getFollowings = (username, page) => {
+export const getFollowings = (username, page=1) => {
   return async dispatch => {
     dispatch({
       type: CONST.FETCH_GITHUB_USER_FOLLOWING_LOADING
