@@ -32,13 +32,17 @@ class List extends React.Component{
     if(loading) {
       content = <Loading />
     }else {
-      content = list && list.map(e => {
-        return <li key={e.id} styleName="item" onClick={() => {onClickItem(e)}}>
-          <img src={e.avatar_url} styleName="pic"/>
-          {e.login}
-          <span styleName="icon">{this.props.icon}</span>
-        </li>
-      })
+      if(list.length == 0) {
+        content = <span>None</span>
+      }else{
+        content = list.map(e => {
+          return <li key={e.id} styleName="item" onClick={() => {onClickItem(e)}}>
+            <img src={e.avatar_url} styleName="pic"/>
+            {e.login}
+            <span styleName="icon">{this.props.icon}</span>
+          </li>
+        })
+      }
     }
 
     if(error) {

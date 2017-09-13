@@ -39,6 +39,7 @@ export const followersReducer = (state={
         loading: true
       }
     case CONST.FETCH_GITHUB_USER_FOLLOWERS_SUCCESS:
+      console.log(action.payload)
       return {
         loading: false,
         data: action.payload

@@ -46,8 +46,8 @@ class App extends React.Component {
 
   onSelectUser = item => {
     let username = item.login
-    this.props.dispatch(getFollowers(username))
-    this.props.dispatch(getFollowings(username))
+    this.props.dispatch(getFollowers(username, this.state.followersPageIndex))
+    this.props.dispatch(getFollowings(username, this.state.followingsPageIndex))
   }
 
   render() {
@@ -62,56 +62,80 @@ class App extends React.Component {
         <button onClick={()=>{this.onSubmit(this.state.username)}}>submit</button>
 
         <div styleName="main">
-          {
-            this.props.users.data.length != 0 && <div styleName="users">
-              <List
-                style={{cursor: 'pointer'}}
-                title={`users (${this.props.users.total})`}
-                data={this.props.users.data}
-                loading={this.props.users.loading}
-                error={this.props.users.error}
-                onClickItem={this.onSelectUser}
-                icon=">"
-                onClickPrev={() => {
-                  let currentPage = this.state.userPageIndex
-                  if(currentPage == 1) return
-                  this.setState({
-                    userPageIndex: currentPage - 1
-                  })
-                  this.props.dispatch(searchUsers(this.state.username, currentPage - 1))
-                }}
-                onClickNext={() => {
-                  let currentPage = this.state.userPageIndex
-                  this.setState({
-                    userPageIndex: currentPage + 1
-                  })
-                  this.props.dispatch(searchUsers(this.state.username, currentPage + 1))
-                }}
-              />
-            </div>
-          }
+          <div styleName="users">
+            <List
+              style={{cursor: 'pointer'}}
+              title={`users (${this.props.users.total})`}
+              data={this.props.users.data}
+              loading={this.props.users.loading}
+              error={this.props.users.error}
+              onClickItem={this.onSelectUser}
+              icon=">"
+              onClickPrev={() => {
+                let currentPage = this.state.userPageIndex
+                if(currentPage == 1) return
+                this.setState({
+                  userPageIndex: currentPage - 1
+                })
+                this.props.dispatch(searchUsers(this.state.username, currentPage - 1))
+              }}
+              onClickNext={() => {
+                let currentPage = this.state.userPageIndex
+                this.setState({
+                  userPageIndex: currentPage + 1
+                })
+                this.props.dispatch(searchUsers(this.state.username, currentPage + 1))
+              }}
+            />
+          </div>
 
-          {
-            this.props.followers.data.length != 0 && <div styleName="followers">
-              <List
-                title="fllowers"
-                data={this.props.followers.data}
-                loading={this.props.followers.loading}
-                error={this.props.followers.error}
-              />
-            </div>
-          }
+          <div styleName="followers">
+            <List
+              title="fllowers"
+              data={this.props.followers.data}
+              loading={this.props.followers.loading}
+              error={this.props.followers.error}
+              onClickPrev={() => {
+                let currentPage = this.state.followersPageIndex
+                if(currentPage == 1) return
+                this.setState({
+                  followersPageIndex: currentPage - 1
+                })
+                this.props.dispatch(getFollowers(this.state.username, currentPage - 1))
+              }}
+              onClickNext={() => {
+                let currentPage = this.state.followersPageIndex
+                this.setState({
+                  followersPageIndex: currentPage + 1
+                })
+                this.props.dispatch(getFollowers(this.state.username, currentPage + 1))
+              }}
+            />
+          </div>
 
-          {
-            this.props.followings.data.length != 0 && <div styleName="followings">
-              <List
-                title="followings"
-                data={this.props.followings.data}
-                loading={this.props.followings.loading}
-                error={this.props.followings.error}
-              />
-            </div>
-          }
+          <div styleName="followings">
+            <List
+              title="followings"
+              data={this.props.followings.data}
+              loading={this.props.followings.loading}
+              error={this.props.followings.error}
+              onClickPrev={() => {
+                let currentPage = this.state.followingsPageIndex
+                if(currentPage == 1) return
+                this.setState({
+                  followingsPageIndex: currentPage - 1
+                })
+                this.props.dispatch(getFollowings(this.state.username, currentPage - 1))
+              }}
+              onClickNext={() => {
+                let currentPage = this.state.followingsPageIndex
+                this.setState({
+                  followingsPageIndex: currentPage + 1
+                })
+                this.props.dispatch(getFollowings(this.state.username, currentPage + 1))
+              }}
+            />
+          </div>
         </div>
       </div>
     )
