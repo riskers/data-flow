@@ -3,7 +3,8 @@ import * as CONST from './constants'
 export const usersReducer = (state={
   loading: false,
   total: 0,
-  data: []
+  data: [],
+  error: ''
 }, action) => {
   switch(action.type) {
     case CONST.FETCH_GITHUB_SEARCH_USER_LOADING:

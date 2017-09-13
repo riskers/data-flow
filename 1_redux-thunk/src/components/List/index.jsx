@@ -2,48 +2,62 @@ import React from 'react'
 import Loading from 'components/Loading'
 import './style.css'
 
-const List = props => {
-  let {
-    style,
-    data: list,
-    loading,
-    error,
-    onClickItem
-  } = props
+class List extends React.Component{
 
-  let content
-
-  if(loading) {
-    content = <Loading />
-  }else {
-    content = list && list.map(e => {
-      return <li key={e.id} styleName="item" onClick={() => {onClickItem(e)}}>
-        <img src={e.avatar_url} styleName="pic"/>
-        {e.login}
-      </li>
-    })
+  static defaultProps = {
+    icon: '',
+    onClickItem: () => {},
+    onClickPrev: () => {},
+    onClickNext: () => {}
   }
 
-  if(error) {
-    content = <span>{error}</span>
+  constructor(props) {
+    super(props)
   }
 
-  return <div style={style}>
-    <header styleName="header">
-      <h3 styleName="title">{props.title}</h3>
-      <div styleName="links">
-        <a href="javascript:void(0)" styleName="link"> &lt; </a>
-        <a href="javascript:void(0)" styleName="link"> &gt; </a>
-      </div>
-    </header>
-    <ul styleName="list">
-      {content}
-    </ul>
-  </div>
-}
+  render() {
+    let {
+      title,
+      style,
+      data: list,
+      loading,
+      error,
+      onClickItem,
+      onClickPrev,
+      onClickNext
+    } = this.props
 
-List.defaultProps = {
-  onClickItem: () => {}
+    let content
+
+    if(loading) {
+      content = <Loading />
+    }else {
+      content = list && list.map(e => {
+        return <li key={e.id} styleName="item" onClick={() => {onClickItem(e)}}>
+          <img src={e.avatar_url} styleName="pic"/>
+          {e.login}
+          <span styleName="icon">{this.props.icon}</span>
+        </li>
+      })
+    }
+
+    if(error) {
+      content = <span>{error}</span>
+    }
+
+    return <div style={style}>
+      <header styleName="header">
+        <h3 styleName="title">{title}</h3>
+        <div styleName="links">
+          <a href="javascript:void(0)" styleName="link" onClick={onClickPrev}> &lt; </a>
+          <a href="javascript:void(0)" styleName="link" onClick={onClickNext}> &gt; </a>
+        </div>
+      </header>
+      <ul styleName="list">
+        {content}
+      </ul>
+    </div>
+  }
 }
 
 export default List

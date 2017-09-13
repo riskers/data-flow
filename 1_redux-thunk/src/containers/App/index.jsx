@@ -26,7 +26,10 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      username: ''
+      username: '',
+      userPageIndex: 1,
+      followersPageIndex: 1,
+      followingsPageIndex: 1
     }
   }
 
@@ -38,7 +41,7 @@ class App extends React.Component {
   }
 
   onSubmit = username => {
-    this.props.dispatch(searchUsers(username))
+    this.props.dispatch(searchUsers(username, this.state.userPageIndex))
   }
 
   onSelectUser = item => {
@@ -48,6 +51,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return(
       <div>
         <input
@@ -67,6 +71,22 @@ class App extends React.Component {
                 loading={this.props.users.loading}
                 error={this.props.users.error}
                 onClickItem={this.onSelectUser}
+                icon=">"
+                onClickPrev={() => {
+                  let currentPage = this.state.userPageIndex
+                  if(currentPage == 1) return
+                  this.setState({
+                    userPageIndex: currentPage - 1
+                  })
+                  this.props.dispatch(searchUsers(this.state.username, currentPage - 1))
+                }}
+                onClickNext={() => {
+                  let currentPage = this.state.userPageIndex
+                  this.setState({
+                    userPageIndex: currentPage + 1
+                  })
+                  this.props.dispatch(searchUsers(this.state.username, currentPage + 1))
+                }}
               />
             </div>
           }
