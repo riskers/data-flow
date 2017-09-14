@@ -5,7 +5,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export const searchUsers = (username, page) => {
   return {
-    type: 'FETCH_GITHUB_SEARCH_USER',
+    type: CONST.FETCH_GITHUB_SEARCH_USER,
     payload: {
       username,
       page
