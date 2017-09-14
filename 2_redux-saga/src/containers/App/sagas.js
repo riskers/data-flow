@@ -18,20 +18,25 @@ function* fetchUsers(action) {
 
   yield call(delay, 2000)
 
-  let response = yield call(fetch, `https://api.github.com/search/users?q=${username}&page=${page}`)
-  let data = yield response.json()
+  try {
+    let response = yield call(fetch, `https://api.github.com/search/users?q=${username}&page=${page}`)
+    let data = yield response.json()
 
-  yield put({
-    type: CONST.FETCH_GITHUB_SEARCH_USER_SUCCESS,
-    payload: data
-  })
+    yield put({
+      type: CONST.FETCH_GITHUB_SEARCH_USER_SUCCESS,
+      payload: data
+    })
+  }catch(e) {
+    yield put({
+      type: CONST.FETCH_GITHUB_SEARCH_USER_FAILURE,
+      error: "No This User"
+    })
+  }
 
 }
 
-function* saga(username) {
+export default function* () {
   yield [
     takeLatest('FETCH_GITHUB_SEARCH_USER', fetchUsers)
   ]
 }
-
-export default saga

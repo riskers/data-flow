@@ -13,31 +13,6 @@ export const searchUsers = (username, page) => {
   }
 }
 
-// export const searchUsers = (username, page=1) => {
-//   return async dispatch => {
-//     dispatch({
-//       type: CONST.FETCH_GITHUB_SEARCH_USER_LOADING
-//     })
-
-//     await delay(2000)
-
-//     try {
-//       const response = await fetch(`https://api.github.com/search/users?q=${username}&page=${page}`)
-//       let data = await response.json()
-
-//       dispatch({
-//         type: CONST.FETCH_GITHUB_SEARCH_USER_SUCCESS,
-//         payload: data
-//       })
-//     }catch(e) {
-//       dispatch({
-//         type: CONST.FETCH_GITHUB_SEARCH_USER_FAILURE,
-//         error: "No This User"
-//       })
-//     }
-//   }
-// }
-
 export const getFollowers = (username, page=1) => {
   return async dispatch => {
     dispatch({

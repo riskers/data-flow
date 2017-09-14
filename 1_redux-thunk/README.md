@@ -14,9 +14,12 @@ VIEW ----------> function(return async dispatch) ----------> ACTION object -----
 |----------> ACTION object ---------> DATA
 ```
 
-> VIEW 会 dispatch 一个 action object 或一个高阶函数（返回 async function）
-> 当 dispatch 一个 action object 时，reducer 会更新数据
-> 当 dispatch 一个函数时，就可以在里面做各种异步操作（利用 await）
+VIEW 会 dispatch 一个 ACTION object 或一个高阶函数（返回 async function）:
+
+* 当 dispatch 一个 ACTION object 时，reducer 会更新数据
+* 当 dispatch 一个函数时，我们就可以在里面做各种异步操作（利用 await），然后 dispatch 一个 ACTION object，reducer 更新数据
+
+*********
 
 ```js
 // action creators

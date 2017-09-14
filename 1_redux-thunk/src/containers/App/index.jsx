@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   onSubmit = username => {
-    this.props.dispatch(searchUsers(username, this.state.userPageIndex))
+    this.props.dispatch(searchUsers(username, 1))
   }
 
   onSelectUser = item => {
