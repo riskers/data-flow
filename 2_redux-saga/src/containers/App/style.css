@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  margin-top: 30px;
+}
+
+.users {
+  width: 300px;
+}
+
+.followers {
+  width: 300px;
+  margin-left: 50px;
+}
+
+.followings {
+  width: 300px;
+  margin-left: 50px;
+}
+
+.users,
+.followers,
+.followings {
+  padding: 10px;
+  border: 1px solid #ccc;
+}

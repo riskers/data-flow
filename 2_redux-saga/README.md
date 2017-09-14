@@ -1,0 +1,1 @@
+redux-saga 不用像 redux-thunk dispatch 一个 function，而是 dispatch 一个 action 对象
