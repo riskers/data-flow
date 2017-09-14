@@ -7,6 +7,6 @@ Make sure you already understand [redux](https://github.com/reactjs/redux).
 includes:
 
 * [ ] [redux-thunk + async](./1_redux-thunk)
-* [ ] redux-saga
+* [ ] [redux-saga](./2_redux-saga)
 * [ ] redux-observable
 * [ ] mobx
