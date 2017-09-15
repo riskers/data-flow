@@ -3,7 +3,7 @@ import * as CONST from './constants'
 // simulate newwork deley
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-export const searchUsers = (username, page=1) => {
+export const searchUsers = (username, page) => {
   return async dispatch => {
     dispatch({
       type: CONST.FETCH_GITHUB_SEARCH_USER_LOADING
@@ -28,7 +28,7 @@ export const searchUsers = (username, page=1) => {
   }
 }
 
-export const getFollowers = (username, page=1) => {
+export const getFollowers = (username, page) => {
   return async dispatch => {
     dispatch({
       type: CONST.FETCH_GITHUB_USER_FOLLOWERS_LOADING
@@ -53,7 +53,7 @@ export const getFollowers = (username, page=1) => {
   }
 }
 
-export const getFollowings = (username, page=1) => {
+export const getFollowings = (username, page) => {
   return async dispatch => {
     dispatch({
       type: CONST.FETCH_GITHUB_USER_FOLLOWING_LOADING

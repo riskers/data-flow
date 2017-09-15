@@ -3,16 +3,16 @@
 redux-saga:
 
 ```
-      dispatch                  reducer
-VIEW ----------> ACTION object ---------> DATA
-                       |
-                       |
-                       |
-                       | watch
-                       |
-                       |
-                       |    dispatch                  reducer
-                     SAGAS ----------> ACTION object ---------> DATA
+      dispatch                                     update          update
+VIEW ----------> ACTION object ---------> REDUCER --------> STORE --------> STATE
+                       |                     ^
+                       |                     |
+                       |                     |
+                       | watch               |
+                       |                     |
+                       |                     |
+                       |    dispatch         |
+                     SAGAS ----------> ACTION object
 ```
 
 VIEW dispatch 一个 ACTION object:
@@ -34,7 +34,9 @@ export const searchUsers = (username, page) => {
     }
   }
 }
+```
 
+```js
 // App/sagas.js
 function* fetchUsers(action) {
   let {
@@ -65,17 +67,15 @@ function* fetchUsers(action) {
 }
 
 export default function* () {
-  yield [
-    takeLatest('FETCH_GITHUB_SEARCH_USER', fetchUsers)
-  ]
+  yield takeLatest(CONST.FETCH_GITHUB_SEARCH_USER, fetchUsers)
 }
+```
 
+```js
 // sagas/index.js
 import AppSaga from 'containers/App/sagas'
 
 export default function* rootSaga() {
-  yield [
-    AppSaga()
-  ]
+  yield AppSaga()
 }
 ```

@@ -13,52 +13,22 @@ export const searchUsers = (username, page) => {
   }
 }
 
-export const getFollowers = (username, page=1) => {
-  return async dispatch => {
-    dispatch({
-      type: CONST.FETCH_GITHUB_USER_FOLLOWERS_LOADING
-    })
-
-    await delay(2000)
-
-    try{
-      const response = await fetch(`https://api.github.com/users/${username}/followers?page=${page}`)
-      let data = await response.json()
-
-      dispatch({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWERS_SUCCESS,
-        payload: data
-      })
-    }catch(error) {
-      dispatch({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWERS_FAILURE,
-        error: "No This User"
-      })
+export const getFollowers = (username, page) => {
+  return {
+    type: CONST.FETCH_GITHUB_USER_FOLLOWERS,
+    payload: {
+      username,
+      page
     }
   }
 }
 
-export const getFollowings = (username, page=1) => {
-  return async dispatch => {
-    dispatch({
-      type: CONST.FETCH_GITHUB_USER_FOLLOWING_LOADING
-    })
-
-    await delay(2000)
-
-    try{
-      const response = await fetch(`https://api.github.com/users/${username}/following?page=${page}`)
-      let data = await response.json()
-
-      dispatch({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWING_SUCCESS,
-        payload: data
-      })
-    }catch(error) {
-      dispatch({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWING_FAILURE,
-        error
-      })
+export const getFollowings = (username, page) => {
+  return {
+    type: CONST.FETCH_GITHUB_USER_FOLLOWING,
+    payload: {
+      username,
+      page
     }
   }
 }
