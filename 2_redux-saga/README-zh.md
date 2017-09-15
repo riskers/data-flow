@@ -22,8 +22,17 @@ VIEW dispatch 一个 ACTION object:
 
 *********
 
-## test
+与 redux-thunk 比较:
 
+* 原理不同：Sagas 不同于 Thunks，Thunks 是在 action 被创建时调用，而 Sagas 会在应用启动时调用（但初始启动的 Sagas 可能会动态调用其他 Sagas），是常驻后台的（因为 generator）。
+
+* redux-saga 有cancel、takeLeast这些操作，这是 async 做不到的（这也是 generator 相对 async 的优势）
+
+* redux-saga 易测试，比如它可以无阻塞地调用一个 generator（fork）、中断一个 generator （cancel）。这些特性在业务逻辑复杂的场景下非常适用。
+
+    > 测试是指测试 action ，这个 action 之后是不是那个 action
+
+* redux-saga 保持了 action 的原义，保持 action 的简洁，把所有有副作用的地方独立开来（这样action里会很干净）。这种特性让 redux-saga 在业务逻辑简单的场景下，也能保持代码清晰简洁。
 
 
 *********
