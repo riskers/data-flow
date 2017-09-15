@@ -5,7 +5,7 @@ This is a simplest redux method for asynchronous operation.
 It can use like-synchronous way to write asynchronous coding.Because of [redux-thunk](https://github.com/gaearon/redux-thunk), you can async dispatch and await asynchronous operation:
 
 ```
-      dispatch                                    dispatch                                     update
+      dispatch                                       dispatch           update
 VIEW ----------> function ----------> ACTION object ---------> REDUCER --------> STORE --------> STATE
 |          (return async dispatch)                                ^
 |                                                                 |
