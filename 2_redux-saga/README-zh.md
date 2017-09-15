@@ -1,6 +1,6 @@
 [English](./README.md) | 中文
 
-redux-saga:
+[redux-saga](https://github.com/redux-saga/redux-saga) simplify action creators that return action onject. Once trigger the action that sagas watch, sagas will operate series of [effects](https://redux-saga.js.org/docs/basics/DeclarativeEffects.html) then dispatch(example by `put`) action:
 
 ```
       dispatch                                     update          update
@@ -19,6 +19,11 @@ VIEW dispatch 一个 ACTION object:
 
 * 这个 ACTION object 没有被 sagas 监听，则 reducer 会更新数据
 * 这个 ACTION object 被 sagas 监听，则走入 sagas 的流程，在 sagas 中 dispatch ACTION object，reducer 更新数据
+
+*********
+
+## test
+
 
 
 *********

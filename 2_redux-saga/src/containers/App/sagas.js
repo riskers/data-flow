@@ -3,9 +3,9 @@ import { call, put } from 'redux-saga/effects'
 import * as CONST from './constants'
 
 // simulate newwork deley
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const searchUsers = function*(action) {
+export const searchUsers = function*(action) {
   let {
     username,
     page
@@ -33,7 +33,7 @@ const searchUsers = function*(action) {
   }
 }
 
-const getFollowers = function*(action) {
+export const getFollowers = function*(action) {
   let {
     username,
     page
@@ -61,7 +61,7 @@ const getFollowers = function*(action) {
   }
 }
 
-const getFollowings = function*(action) {
+export const getFollowings = function*(action) {
   let {
     username,
     page
