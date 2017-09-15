@@ -5,13 +5,14 @@ This is a simplest redux method for asynchronous operation.
 It can use like-synchronous way to write asynchronous coding.Because of [redux-thunk](https://github.com/gaearon/redux-thunk), you can async dispatch and await asynchronous operation:
 
 ```
-      dispatch                                    dispatch                  reducer
-VIEW ----------> function(return async dispatch) ----------> ACTION object ---------> DATA
-|
-|
-|
-| dispatch                  reducer
-|----------> ACTION object ---------> DATA
+      dispatch                                    dispatch                                     update
+VIEW ----------> function ----------> ACTION object ---------> REDUCER --------> STORE --------> STATE
+|          (return async dispatch)                                ^
+|                                                                 |
+|                                                                 |
+|                                                                 |
+|       dispatch                                                  |
+|---------------------> ACTION object -----------------------------
 ```
 
 VIEW 会 dispatch 一个 ACTION object 或一个高阶函数（返回 async function）:
