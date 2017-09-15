@@ -1,2 +1,2 @@
-English | [中文](./README-zh.md)
+English | [中文](README-zh.md)
 

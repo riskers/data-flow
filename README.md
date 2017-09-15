@@ -1,4 +1,4 @@
-English | [中文](./README-zh.md)
+English | [中文](README-zh.md)
 
 This project is to study the various data flow. Using [React](https://facebook.github.io/react/) learn data flow.
 

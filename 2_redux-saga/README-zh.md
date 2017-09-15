@@ -1,4 +1,4 @@
-[English](./README.md) | 中文
+[English](README.md) | 中文
 
 [redux-saga](https://github.com/redux-saga/redux-saga) simplify action creators that return action onject. Once trigger the action that sagas watch, sagas will operate series of [effects](https://redux-saga.js.org/docs/basics/DeclarativeEffects.html) then dispatch(example by `put`) action:
 
