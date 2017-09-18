@@ -98,46 +98,45 @@ test('search fetch followers', t => {
 })
 
 test('search fetch followings', t => {
-  
-    let username = 'riskers',
-        page
-  
-    let mockData = {
-      a: 1
+
+  let username = 'riskers',
+      page
+
+  let mockData = {
+    a: 1
+  }
+
+  const gen = getFollowings({
+    payload: {
+      username,
+      page
     }
-  
-    const gen = getFollowings({
-      payload: {
-        username,
-        page
-      }
-    })
-  
-    t.deepEqual(
-      gen.next().value,
-      put({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWING_LOADING
-      })
-    )
-  
-    t.deepEqual(
-      gen.next().value,
-      call(delay, 2000)
-    )
-  
-    t.deepEqual(
-      gen.next().value,
-      call(axios.get,`https://api.github.com/users/${username}/following?page=${page}`)
-    )
-  
-    t.deepEqual(
-      gen.next({
-        data: mockData
-      }).value,
-      put({
-        type: CONST.FETCH_GITHUB_USER_FOLLOWING_SUCCESS,
-        payload: mockData
-      })
-    )
   })
-  
+
+  t.deepEqual(
+    gen.next().value,
+    put({
+      type: CONST.FETCH_GITHUB_USER_FOLLOWING_LOADING
+    })
+  )
+
+  t.deepEqual(
+    gen.next().value,
+    call(delay, 2000)
+  )
+
+  t.deepEqual(
+    gen.next().value,
+    call(axios.get,`https://api.github.com/users/${username}/following?page=${page}`)
+  )
+
+  t.deepEqual(
+    gen.next({
+      data: mockData
+    }).value,
+    put({
+      type: CONST.FETCH_GITHUB_USER_FOLLOWING_SUCCESS,
+      payload: mockData
+    })
+  )
+})
