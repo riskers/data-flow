@@ -34,6 +34,9 @@ VIEW dispatch 一个 ACTION object:
 
 * redux-saga 保持了 action 的原义，保持 action 的简洁，把所有有副作用的地方独立开来（这样action里会很干净）。这种特性让 redux-saga 在业务逻辑简单的场景下，也能保持代码清晰简洁。
 
+*********
+
+因为测试了 sagas ，所以使用了 axios
 
 *********
 
