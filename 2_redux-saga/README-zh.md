@@ -36,6 +36,10 @@ VIEW dispatch 一个 ACTION object:
 
 *********
 
+## Test
+
+[sagas.test.js](src/containers/App/sagas.test.js)
+
 因为测试了 sagas ，所以使用了 axios
 
 *********
