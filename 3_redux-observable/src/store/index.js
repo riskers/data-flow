@@ -8,10 +8,16 @@ import {
 } from 'containers/App/reducers'
 
 import {
-  searchUsers
+  searchUsersEpic,
+  getFollowersEpic,
+  getFollowingsEpic
 } from 'containers/App/epics'
 
-const rootEpic = combineEpics(searchUsers)
+const rootEpic = combineEpics(
+  searchUsersEpic,
+  getFollowersEpic,
+  getFollowingsEpic
+)
 
 const epicMiddleware = createEpicMiddleware(rootEpic)
 
