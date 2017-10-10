@@ -4,6 +4,15 @@ I made a demo in [jsbin](https://jsbin.com/fuyaquq/edit?js,output) same as befor
 
 Then we start to learn how to using rxjs in redux application. Yeah, It's [redux-observable](https://github.com/redux-observable/redux-observable).
 
-https://medium.com/@benlesh/redux-observable-ec0b00d2eb52
+```
 
-https://hackmd.io/s/H1xLHUQ8e#side-by-side-comparison
+```
+
+******
+
+About redux-saga vs redux-observable, reference here:
+
+* [Redux-Saga V.S. Redux-Observable](https://hackmd.io/s/H1xLHUQ8e)
+* [Redux-Observable Epics vs Redux-Sagas](https://shift.infinite.red/redux-observable-epics-vs-redux-sagas-8e53610c0eda)
+
+******
