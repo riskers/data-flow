@@ -4,9 +4,39 @@ import * as CONST from './constants'
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export const searchUsers = (username, page) => {
-  return async dispatch => {
+  return {
+    type: CONST.FETCH_GITHUB_SEARCH_USER,
+    payload: {
+      username,
+      page
+    }
+  }
+}
+
+export const getFollowers = (username, page) => {
+  return {
+    type: CONST.FETCH_GITHUB_USER_FOLLOWERS,
+    payload: {
+      username,
+      page
+    }
+  }
+}
+
+export const getFollowings = (username, page) => {
+  return {
+    type: CONST.FETCH_GITHUB_USER_FOLLOWING,
+    payload: {
+      username,
+      page
+    }
+  }
+}
+
+/* export const searchUsers = (username, page) => {
+  
     dispatch({
-      type: CONST.FETCH_GITHUB_SEARCH_USER_LOADING
+      type: CONST.FETCH_GITHUB_SEARCH_USER
     })
 
     await delay(2000)
@@ -76,4 +106,4 @@ export const getFollowings = (username, page) => {
       })
     }
   }
-}
+} */
