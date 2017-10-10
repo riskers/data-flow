@@ -7,7 +7,11 @@ import {
   followingsReducer
 } from 'containers/App/reducers'
 
-import rootSaga from 'sagas'
+import AppSaga from 'containers/App/sagas'
+
+function* rootSaga() {
+  yield AppSaga()
+}
 
 const reducer = combineReducers({
   usersReducer,
