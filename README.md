@@ -9,4 +9,4 @@ includes:
 * [ ] [redux-thunk + async](./1_redux-thunk)
 * [ ] [redux-saga](./2_redux-saga)
 * [ ] [redux-observable](./3_redux-observable)
-* [ ] mobx
+* [ ] [MobX](./4_mobx)
