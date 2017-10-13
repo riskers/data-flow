@@ -1,26 +1,16 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import Loading from 'components/Loading'
 import List from 'components/List'
 
 import './style.css'
 
-import {
-  searchUsers,
-  getFollowers,
-  getFollowings
-} from './actions'
+// import {
+//   searchUsers,
+//   getFollowers,
+//   getFollowings
+// } from './actions'
 
 export default
-@connect(
-  state => (
-    {
-      users: state.usersReducer,
-      followers: state.followersReducer,
-      followings: state.followingsReducer
-    }
-  )
-)
 class App extends React.Component {
   constructor(props) {
     super(props)
