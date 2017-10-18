@@ -1,47 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import App from 'containers/App'
-
-import { observable } from 'mobx'
+import { observable, useStrict } from 'mobx'
 import { Provider, observer, inject } from 'mobx-react'
 
+import App from 'pages/App'
 import stores from './store'
 
-@inject('clickTimes')
-@observer
-class Counter extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
-
-	onInc = () => {
-    this.props.clickTimes.inc()
-	}
-
-	onDec = () => {
-    this.props.clickTimes.dec()
-	}
-
-	render() {
-		return <div>
-			<p>Count: {this.props.clickTimes.times}</p>
-			<button onClick={this.onInc}> + </button>
-			<button onClick={this.onDec}> - </button>
-		</div>
-	}
-}
+useStrict(true)
 
 ReactDOM.render(
   <Provider {...stores}>
-	  <Counter />
+    <div>
+	    <App />
+      {/* <DevTools /> */}
+    </div>
   </Provider>,
 	document.getElementById('app')
 )
-
-// ReactDOM.render(
-//     <App/>
-//   ,
-//   document.getElementById('app')
-// )

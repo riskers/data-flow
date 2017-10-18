@@ -51,7 +51,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       'components': ROOT + '/src/components',
-      'containers': ROOT + '/src/containers',
+      'pages': ROOT + '/src/pages',
     }
   }
 }
