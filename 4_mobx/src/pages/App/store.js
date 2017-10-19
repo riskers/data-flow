@@ -34,21 +34,68 @@ class UsersStore {
       })
     }
   }
+}
 
-  /* @action
-  fetchUsers = (username, page) => {
-    fetch(`https://api.github.com/search/users?q=${username}&page=${page}`)
-      .then(res => {
-        return res.json()
+class FollowersStore {
+  @observable data = []
+  @observable loading = false
+  @observable total = 0
+  @observable error = ''
+
+  @action
+  async getFollowers(username, page) {
+    this.loading = true
+
+    await delay(2000)
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}/followers?page=${page}`)
+      let resData = await response.json()
+
+      // 异步 action 之后，再次修改状态需要动作:
+      runInAction(() => {
+        this.loading = false
+        this.data = resData
       })
-      .then(resData => {
-        runInAction(() => {
-          this.loading = false
-          this.data = resData.items
-          this.total = resData.total_count
-        })
+    }catch(e) {
+      runInAction(() => {
+        this.loading = false
+        this.error = 'No This User'
       })
-  } */
+    }
+  }
+}
+
+class FollowingsStore {
+  @observable data = []
+  @observable loading = false
+  @observable total = 0
+  @observable error = ''
+
+  @action
+  async getFollowings(username, page) {
+    this.loading = true
+
+    await delay(2000)
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}/following?page=${page}`)
+      let resData = await response.json()
+
+      // 异步 action 之后，再次修改状态需要动作:
+      runInAction(() => {
+        this.loading = false
+        this.data = resData
+      })
+    }catch(e) {
+      runInAction(() => {
+        this.loading = false
+        this.error = 'No This User'
+      })
+    }
+  }
 }
 
 export const usersStore = new UsersStore
+export const followersStore = new FollowersStore
+export const followingsStore = new FollowingsStore

@@ -14,7 +14,7 @@ MobX Tips:
 MobX + React:
 
 * @observable
-* @action / useStrict
+* @action / useStrict / runInAction(async)
 * @computed
 * @inject / @observer / Provider
 

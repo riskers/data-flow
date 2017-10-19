@@ -1,9 +1,13 @@
 import {
-  usersStore
+  usersStore,
+  followersStore,
+  followingsStore
 } from 'pages/App/store'
 
 const stores = {
-  usersStore
+  usersStore,
+  followersStore,
+  followingsStore
 }
 
 export default stores
