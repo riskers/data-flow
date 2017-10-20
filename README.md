@@ -1,6 +1,6 @@
 Using series of data flow way production:
 
-![demo](./assets.demo.gif)
+![demo](./assets/demo.gif)
 
 ## includes
 
