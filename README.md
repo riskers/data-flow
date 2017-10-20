@@ -1,4 +1,6 @@
-This project is to study data flow by [React](https://facebook.github.io/react/).
+Using series of data flow way production:
+
+![demo](./assets.demo.gif)
 
 ## includes
 
