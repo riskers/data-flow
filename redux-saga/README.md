@@ -1,2 +1,3 @@
-English | [中文](README-zh.md)
-
+```shell
+npm install && npm start
+```
