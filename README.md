@@ -4,11 +4,14 @@ This project is to study the various data flow. Using [React](https://facebook.g
 
 Make sure you already understand [redux](https://github.com/reactjs/redux).
 
-includes:
+## includes
 
 * [redux-thunk + async](./redux-thunk)
 * [redux-saga](./redux-saga)
 * [redux-observable](./redux-observable)
 * [MobX](./mobx)
+
+## TODO
+
 * [ ] Elm
 * [ ] cycle

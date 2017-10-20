@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "",
   "scripts": {
-    "start": "webpack-dev-server --color --progress --hot",
+    "start": "webpack-dev-server --color --progress --hot --open",
     "test": "ava src/**/*.test.js --tap | tap-mocha-reporter spec"
   },
   "author": "",

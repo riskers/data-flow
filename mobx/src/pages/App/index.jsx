@@ -45,7 +45,7 @@ class App extends React.Component {
           onChange={this.onChange}
         />
 
-        <button onClick={()=>{this.onSubmit(this.state.username)}}>submit</button>
+        <button onClick={()=>{this.onSubmit(this.state.username)}}>search</button>
 
         <div styleName="main">
           <div styleName="users">
