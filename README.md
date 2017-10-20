@@ -6,7 +6,9 @@ Make sure you already understand [redux](https://github.com/reactjs/redux).
 
 includes:
 
-* [ ] [redux-thunk + async](./1_redux-thunk)
-* [ ] [redux-saga](./2_redux-saga)
-* [ ] [redux-observable](./3_redux-observable)
-* [ ] [MobX](./4_mobx)
+* [redux-thunk + async](./redux-thunk)
+* [redux-saga](./redux-saga)
+* [redux-observable](./redux-observable)
+* [MobX](./mobx)
+* [ ] Elm
+* [ ] cycle
