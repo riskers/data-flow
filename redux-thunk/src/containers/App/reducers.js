@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux'
 import * as CONST from './constants'
 
 export const usersReducer = (state={
@@ -77,3 +78,9 @@ export const followingsReducer = (state={
       return state
   }
 }
+
+export default combineReducers({
+  usersReducer,
+  followersReducer,
+  followingsReducer
+})

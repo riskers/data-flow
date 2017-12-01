@@ -13,13 +13,14 @@ import {
 
 export default
 @connect(
-  state => (
-    {
-      users: state.usersReducer,
-      followers: state.followersReducer,
-      followings: state.followingsReducer
+  state => {
+    console.log(state)
+    return {
+      users: state.AppReducer.usersReducer,
+      followers: state.AppReducer.followersReducer,
+      followings: state.AppReducer.followingsReducer
     }
-  )
+  }
 )
 class App extends React.Component {
   constructor(props) {
