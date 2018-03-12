@@ -2,7 +2,7 @@ import {
   usersStore,
   followersStore,
   followingsStore
-} from 'pages/App/store'
+} from 'pages/Home/store'
 
 const stores = {
   usersStore,

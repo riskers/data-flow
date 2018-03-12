@@ -21,7 +21,7 @@ export default
     }
   )
 )
-class App extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props)
 

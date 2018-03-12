@@ -5,8 +5,8 @@ var ROOT = path.resolve(__dirname)
 var ENV = process.env.ENV
 
 var entry = {
-  app: [
-    ROOT + '/src/app.js'
+  index: [
+    ROOT + '/src/index.js'
   ]
 }
 
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        use: ['react-hot-loader', 'babel-loader?cacheDirectory']
+        use: ['babel-loader?cacheDirectory']
       },
       {
         test: /\.css$/,

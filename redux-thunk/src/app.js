@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import configureStore from './store'
+import { hot } from 'react-hot-loader'
 
-import App from 'containers/App'
+import Home from 'pages/Home'
 
-const store = configureStore()
+const App = () => {
+  return (
+    <Home/>
+  )
+}
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('app')
-)
+export default hot(module)(App)

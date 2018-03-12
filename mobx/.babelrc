@@ -1,13 +1,16 @@
 {
   "presets": [
-    "es2015",
+    ["env", {
+      "modules": false
+    }],
     "react",
     "stage-0"
   ],
   "plugins": [
     "transform-decorators-legacy",
     "transform-runtime",
-    ["react-css-modules", 
+    "react-hot-loader/babel",
+    ["react-css-modules",
       {
         "generateScopedName":"[local]___[hash:base64:5]"
       }

@@ -1,19 +1,18 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import Home from 'pages/Home'
 import { observable, useStrict } from 'mobx'
-import { Provider, observer, inject } from 'mobx-react'
-
-import App from 'pages/App'
+import { Provider } from 'mobx-react'
+import { hot } from 'react-hot-loader'
 import stores from './store'
 
 useStrict(true)
 
-ReactDOM.render(
-  <Provider {...stores}>
-    <div>
-	    <App />
-      {/* <DevTools /> */}
-    </div>
-  </Provider>,
-	document.getElementById('app')
-)
+const App = () => {
+  return (
+    <Provider {...stores}>
+      <Home />
+    </Provider>
+  )
+}
+
+export default hot(module)(App)

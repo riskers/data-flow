@@ -5,7 +5,7 @@ import {
   usersReducer,
   followersReducer,
   followingsReducer
-} from 'containers/App/reducers'
+} from 'pages/Home/reducers'
 
 const reducer = combineReducers({
   usersReducer,

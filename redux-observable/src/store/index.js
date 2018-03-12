@@ -5,13 +5,13 @@ import {
   usersReducer,
   followersReducer,
   followingsReducer
-} from 'containers/App/reducers'
+} from 'pages/Home/reducers'
 
 import {
   searchUsersEpic,
   getFollowersEpic,
   getFollowingsEpic
-} from 'containers/App/epics'
+} from 'pages/Home/epics'
 
 const rootEpic = combineEpics(
   searchUsersEpic,
