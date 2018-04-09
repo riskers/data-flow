@@ -9,6 +9,10 @@ Using series of data flow way production:
 * [redux-observable](./redux-observable)
 * [MobX](./mobx)
 
+## others
+
+* [react-redux-typescript](https://github.com/riskers/react-redux-ts-demo)
+
 ## TODO
 
 * [ ] Elm
