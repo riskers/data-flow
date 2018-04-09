@@ -11,7 +11,7 @@ Using series of data flow way production:
 
 ## others
 
-* [react-redux-typescript](https://github.com/riskers/react-redux-ts-demo)
+* [redux-thunk typescript](https://github.com/riskers/react-redux-ts-demo)
 
 ## TODO
 
