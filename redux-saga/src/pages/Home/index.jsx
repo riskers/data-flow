@@ -27,6 +27,7 @@ class Home extends React.Component {
 
     this.state = {
       username: '',
+      selectUsername: '',
       userPageIndex: 1,
       followersPageIndex: 1,
       followingsPageIndex: 1
@@ -46,8 +47,16 @@ class Home extends React.Component {
 
   onSelectUser = item => {
     let username = item.login
-    this.props.dispatch(getFollowers(username, this.state.followersPageIndex))
-    this.props.dispatch(getFollowings(username, this.state.followingsPageIndex))
+    this.setState(() => {
+      return {
+        selectUsername: username,
+        followersPageIndex: 1,
+        followingsPageIndex: 1,
+      }
+    }, () => {
+      this.props.dispatch(getFollowers(username, this.state.followersPageIndex))
+      this.props.dispatch(getFollowings(username, this.state.followingsPageIndex))
+    })
   }
 
   render() {
@@ -91,7 +100,7 @@ class Home extends React.Component {
 
           <div styleName="followers">
             <List
-              title="fllowers"
+              title={`${this.state.selectUsername} fllowers`}
               data={this.props.followers.data}
               loading={this.props.followers.loading}
               error={this.props.followers.error}
@@ -101,21 +110,21 @@ class Home extends React.Component {
                 this.setState({
                   followersPageIndex: currentPage - 1
                 })
-                this.props.dispatch(getFollowers(this.state.username, currentPage - 1))
+                this.props.dispatch(getFollowers(this.state.selectUsername, currentPage - 1))
               }}
               onClickNext={() => {
                 let currentPage = this.state.followersPageIndex
                 this.setState({
                   followersPageIndex: currentPage + 1
                 })
-                this.props.dispatch(getFollowers(this.state.username, currentPage + 1))
+                this.props.dispatch(getFollowers(this.state.selectUsername, currentPage + 1))
               }}
             />
           </div>
 
           <div styleName="followings">
             <List
-              title="followings"
+              title={`${this.state.selectUsername} followings`}
               data={this.props.followings.data}
               loading={this.props.followings.loading}
               error={this.props.followings.error}

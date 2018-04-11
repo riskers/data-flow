@@ -14,6 +14,7 @@ class Home extends React.Component {
 
     this.state = {
       username: '',
+      selectUsername: '',
       userPageIndex: 1,
       followersPageIndex: 1,
       followingsPageIndex: 1
@@ -32,9 +33,18 @@ class Home extends React.Component {
   }
 
   onSelectUser = item => {
-    let username = item.login
-    this.props.followersStore.getFollowers(username, this.state.followersPageIndex)
-    this.props.followingsStore.getFollowings(username, this.state.followersPageIndex)
+    let selectUsername = item.login
+
+    this.setState(() => {
+      return {
+        selectUsername,
+        followersPageIndex: 1,
+        followingsPageIndex: 1,
+      }
+    }, () => {
+      this.props.followersStore.getFollowers(selectUsername, this.state.followersPageIndex)
+      this.props.followingsStore.getFollowings(selectUsername, this.state.followersPageIndex)
+    })
   }
 
   render() {
@@ -77,7 +87,7 @@ class Home extends React.Component {
 
           <div styleName="followers">
             <List
-              title="fllowers"
+              title={`${this.state.selectUsername} fllowers`}
               data={this.props.followersStore.data}
               loading={this.props.followersStore.loading}
               error={this.props.followersStore.error}
@@ -87,21 +97,21 @@ class Home extends React.Component {
                 this.setState({
                   followersPageIndex: currentPage - 1
                 })
-                this.props.followersStore.getFollowers(this.state.username, currentPage - 1)
+                this.props.followersStore.getFollowers(this.state.selectUsername, currentPage - 1)
               }}
               onClickNext={() => {
                 let currentPage = this.state.followersPageIndex
                 this.setState({
                   followersPageIndex: currentPage + 1
                 })
-                this.props.followersStore.getFollowers(this.state.username, currentPage + 1)
+                this.props.followersStore.getFollowers(this.state.selectUsername, currentPage + 1)
               }}
             />
           </div>
 
           <div styleName="followings">
             <List
-              title="followings"
+              title={`${this.state.selectUsername} followings`}
               data={this.props.followingsStore.data}
               loading={this.props.followingsStore.loading}
               error={this.props.followingsStore.error}
@@ -111,14 +121,14 @@ class Home extends React.Component {
                 this.setState({
                   followingsPageIndex: currentPage - 1
                 })
-                this.props.followingsStore.getFollowings(this.state.username, currentPage - 1)
+                this.props.followingsStore.getFollowings(this.state.selectUsername, currentPage - 1)
               }}
               onClickNext={() => {
                 let currentPage = this.state.followingsPageIndex
                 this.setState({
                   followingsPageIndex: currentPage + 1
                 })
-                this.props.followingsStore.getFollowings(this.state.username, currentPage + 1)
+                this.props.followingsStore.getFollowings(this.state.selectUsername, currentPage + 1)
               }}
             />
           </div>
