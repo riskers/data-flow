@@ -9,6 +9,11 @@ Using series of data flow way production:
 * [redux-observable](./redux-observable)
 * [MobX](./mobx)
 
+## others
+
+* [redux-thunk typescript](https://github.com/riskers/react-redux-ts-demo)
+* [vue && vuex](https://github.com/riskers/data-flow-vue)
+
 ## TODO
 
 * [ ] Elm
