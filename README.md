@@ -13,8 +13,5 @@ Using series of data flow way production:
 
 * [redux-thunk typescript](https://github.com/riskers/react-redux-ts-demo)
 * [vue && vuex](https://github.com/riskers/data-flow-vue)
+* [Angular](https://github.com/riskers/ng-data-flow)
 
-## TODO
-
-* [ ] Elm
-* [ ] cycle
